@@ -1,1 +1,1 @@
-lesson-1:第一个 jQuery 应用程序示例
+lesson-3:添加 jQuery 到页面中
