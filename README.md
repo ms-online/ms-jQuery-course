@@ -1,1 +1,1 @@
-lesson-3:添加 jQuery 到页面中
+lesson-4:jQuyer 语法和文档就绪函数
