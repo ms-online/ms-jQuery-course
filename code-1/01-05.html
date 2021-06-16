@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-05:元素选择器</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $('div').css('background-color', 'blue')
+        $('p').css('font-weight', 'bold')
+        // $('#boxC').slideUp()
+        $('#boxA').css('background-color', 'red')
+        $('.main').css('font-size', '20px')
+      })
+    </script>
+    <style>
+      div {
+        height: 200px;
+        width: 200px;
+        background-color: black;
+        margin-bottom: 10px;
+        color: white;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="boxA"><p class="main">这是Box-A</p></div>
+    <div id="boxB">这是Box-B</div>
+    <div id="boxC"><p class="main">这是Box-C</p></div>
+  </body>
+</html>
