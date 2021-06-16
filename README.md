@@ -1,1 +1,1 @@
-lesson-5:jQuyer 基础选择器（元素选择器）
+lesson-6:jQuery 复杂选择器（属性选择器）
