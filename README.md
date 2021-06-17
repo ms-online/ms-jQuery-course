@@ -1,1 +1,1 @@
-lesson-7:jQuery 其他选择器
+lesson-8:jQuery 淡入淡出
