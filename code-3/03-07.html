@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-07: 操作CSS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+      #tester {
+        background-color: #fafafa;
+        border: 1px dotted black;
+        width: 600px;
+        padding: 10px;
+      }
+
+      #tester h1 {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #tester button {
+        width: 100%;
+        margin-bottom: 5px;
+        background-color: #ff8b00;
+        color: white;
+        padding: 5px;
+        font-weight: bold;
+        font-size: 1.25em;
+      }
+    </style>
+    <script>
+      $(function () {
+        const FONTS = [
+          'Times',
+          'Arial',
+          'Georgia',
+          'Verdana',
+          'Monospace',
+          'Courier',
+        ]
+        let currentFont = 0
+
+        $('button').click(function (e) {
+          let btnClicked = e.target.id
+          switch (btnClicked) {
+            case 'larger':
+              $('#tester p:last').css('font-size', '+=16px')
+              break
+            case 'smaller':
+              $('#tester p:last').css('font-size', '-=16px')
+              break
+            case 'nextFont':
+              if (currentFont < 5) {
+                currentFont++
+              } else {
+                currentFont = 0
+              }
+              $('#tester p:last').css('font-family', FONTS[currentFont])
+              break
+            case 'bold':
+              $('#tester p:last').css('font-weight', 'bold')
+              break
+          }
+          let outData = 'Font: ' + $('#tester p:last').css('font-family')
+          outData += ' Size: ' + $('#tester p:last').css('font-size')
+          $('#cssText').text(outData)
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="tester">
+        <h1>字体样式测试</h1>
+        <p>
+          <strong>原始状态: </strong>Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Accusamus, ad.
+        </p>
+        <p>
+          <strong>输出状态: </strong>Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Accusamus, ad.
+        </p>
+        <button id="larger">字体变大</button>
+        <button id="smaller">字体变小</button>
+        <button id="nextFont">切换字体</button>
+        <button id="bold">加粗</button>
+        <output id="cssText"></output>
+      </div>
+    </div>
+  </body>
+</html>
