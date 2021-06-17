@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <title>03-04: 元素定位</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #moveMe {
+        background-color: #ff8b00;
+        width: 200px;
+        height: 200px;
+      }
+
+      #container {
+        margin: 10px;
+      }
+
+      #controls {
+        margin-top: 20px;
+        width: 220px;
+        text-align: center;
+      }
+
+      #controls button {
+        width: 100px;
+        padding: 5px;
+        margin: 5px;
+      }
+    </style>
+    <script>
+      $(function () {
+        $('#moveMe').draggable()
+        $('#moveMe').mousemove(getPosition)
+        $('#controls button').click(function (event) {
+          let btn = event.target.childNodes[0].nodeValue
+          // console.log(btn)
+          switch (btn) {
+            case '上':
+              $('#moveMe').css('top', '-=10')
+              break
+            case '下':
+              $('#moveMe').css('top', '+=10')
+              break
+            case '左':
+              $('#moveMe').css('left', '-=10')
+              break
+            case '右':
+              $('#moveMe').css('top', '+=10')
+              break
+          }
+          getPosition()
+        })
+      })
+
+      function getPosition() {
+        let position = $('#moveMe').position()
+        let posX = position.top
+        let posY = position.left
+        let outData = 'Position X:' + posX + ' Y: ' + posY
+        $('#posOut').text(outData)
+      }
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <output id="posOut"></output>
+      <div id="moveMe"></div>
+      <div id="controls">
+        <button>上</button>
+        <button>左</button><button>右</button>
+        <button>下</button>
+      </div>
+    </div>
+  </body>
+</html>
