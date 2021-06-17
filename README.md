@@ -1,1 +1,1 @@
-lesson-8:jQuery 淡入淡出
+lesson-9:jQuery 隐藏和显示

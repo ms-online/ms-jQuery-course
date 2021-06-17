@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-02:隐藏/显示</title>
+    <style>
+      #effectsTargetA {
+        background-color: #2175bc;
+        height: 300px;
+        width: 32%;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        float: left;
+      }
+
+      #effectsTargetB {
+        background-color: #c0c0c0;
+        height: 300px;
+        width: 32%;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        float: left;
+      }
+
+      #effectsTargetC {
+        background-color: #ff8b00;
+        height: 300px;
+        width: 32%;
+        margin-bottom: 20px;
+        float: left;
+      }
+
+      button {
+        height: 40px;
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+
+      .clear {
+        clear: both;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $('body').click(function (event) {
+          let target = event.target.id
+          // console.log(target)
+          switch (target) {
+            case 'btnEffectBlue':
+              $('#effectsTargetA').hide()
+              break
+            case 'btnEffectGray':
+              $('#effectsTargetB').hide()
+              break
+            case 'btnEffectOrange':
+              $('#effectsTargetC').hide()
+              break
+            case 'btnEffectShowAll':
+              $('#effectsTargetA').show()
+              $('#effectsTargetB').show()
+              $('#effectsTargetC').show()
+          }
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="effectsTargetA"></div>
+      <div id="effectsTargetB"></div>
+      <div id="effectsTargetC"></div>
+      <div class="clear"></div>
+      <button id="btnEffectBlue">隐藏蓝色盒子</button>
+      <button id="btnEffectGray">隐藏灰色盒子</button>
+      <button id="btnEffectOrange">隐藏橙色盒子</button>
+      <button id="btnEffectShowAll">显示全部盒子</button>
+    </div>
+  </body>
+</html>
