@@ -1,1 +1,1 @@
-lesson-9:jQuery 隐藏和显示
+lesson-10:jQuery 上滑和下滑
