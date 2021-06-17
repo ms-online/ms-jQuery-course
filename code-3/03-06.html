@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-06: 包裹元素</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $('h1').click(function () {
+          $('h1').wrap("<div id='wrapped'></div>")
+          $('#more').wrapInner("<div id='wrapped2'></div>")
+        })
+      })
+    </script>
+    <style>
+      #wrapped,
+      #wrapped2 {
+        height: 350px;
+        width: 350px;
+        border: 1px dotted black;
+        background-color: lightgoldenrodyellow;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        padding: 20px;
+      }
+
+      #wrapped2 {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>wrap包裹方式</h1>
+    <p>别包裹我！</p>
+    <div id="more">
+      <h2>wrapInner包裹方式</h2>
+      <p>标题一</p>
+      <p>标题二</p>
+    </div>
+  </body>
+</html>
