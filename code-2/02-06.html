@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02-06:回调函数</title>
+    <style>
+      #container {
+        width: 500px;
+        height: 500px;
+        border: 1px dotted black;
+        background-image: url('images/space.png');
+        margin-bottom: 20px;
+      }
+      #ship {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        top: 225px;
+        left: 225px;
+      }
+      #shipData {
+        font-size: 1em;
+        margin-bottom: 20px;
+        text-align: center;
+        width: 500px;
+      }
+      button {
+        display: block;
+        width: 500px;
+        height: 30px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $('body').click(function (event) {
+          let target = event.target.id
+          switch (target) {
+            case 'btnUp':
+              $('#ship').animate(
+                {
+                  top: '-=50',
+                  opacity: '-=.2',
+                },
+                1000,
+                position
+              )
+              $('#ship').css('transform', 'rotate(0deg)')
+              break
+            case 'btnDown':
+              $('#ship').animate(
+                {
+                  top: '+=50',
+                  opacity: '+=.2',
+                },
+                1000,
+                position
+              )
+              $('#ship').css('transform', 'rotate(180deg)')
+              break
+            case 'btnLeft':
+              $('#ship').animate(
+                {
+                  left: '-=50',
+                },
+                1000,
+                position
+              )
+              $('#ship').css('transform', 'rotate(270deg)')
+              break
+            case 'btnRight':
+              $('#ship').animate(
+                {
+                  left: '+=50',
+                },
+                1000,
+                position
+              )
+              $('#ship').css('transform', 'rotate(90deg)')
+              break
+          }
+        })
+      })
+
+      function position() {
+        //动画执行完后调用
+        let outData = 'X:' + $('#ship').css('top')
+        outData += 'Y:' + $('#ship').css('left')
+        $('#shipData').html(outData)
+      }
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <img src="images/ship.png" id="ship" />
+    </div>
+    <div id="shipData"></div>
+    <button id="btnUp">上</button>
+    <button id="btnDown">下</button>
+    <button id="btnLeft">左</button>
+    <button id="btnRight">右</button>
+  </body>
+</html>
