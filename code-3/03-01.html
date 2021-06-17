@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-01:添加和移除类</title>
+    <style>
+      #container {
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-direction: column;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      table {
+        border-collapse: collapse;
+        background-color: #f3f3f3;
+      }
+
+      caption {
+        background-color: #1276bc;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid black;
+        height: 20px;
+      }
+
+      tr,
+      td,
+      th {
+        border: 1px solid black;
+      }
+
+      td,
+      th {
+        padding: 5px;
+      }
+
+      .over {
+        background-color: #ff8b00;
+        color: white;
+      }
+
+      .clicked {
+        background-color: #1276bc;
+        color: white;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $('tr')
+          .mouseover(function (event) {
+            $(this).addClass('over')
+          })
+          .mouseleave(function () {
+            $(this).removeClass('over')
+          })
+          .click(function () {
+            if ($(this).hasClass('clicked')) {
+              $(this).removeClass('clicked')
+            } else {
+              $(this).removeClass('over').addClass('clicked')
+            }
+          })
+      })
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <table>
+        <caption>
+          一周健身安排
+        </caption>
+        <tr>
+          <td>星期日</td>
+          <td>郊外骑行</td>
+        </tr>
+        <tr>
+          <td>星期一</td>
+          <td>慢跑一小时</td>
+        </tr>
+        <tr>
+          <td>星期二</td>
+          <td>跳绳半小时</td>
+        </tr>
+        <tr>
+          <td>星期三</td>
+          <td>休息</td>
+        </tr>
+        <tr>
+          <td>星期四</td>
+          <td>游泳半小时</td>
+        </tr>
+        <tr>
+          <td>星期五</td>
+          <td>羽毛球一小时</td>
+        </tr>
+        <tr>
+          <td>星期六</td>
+          <td>休息</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
