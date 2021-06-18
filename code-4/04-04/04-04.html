@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04-04: 单击和双击事件</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+      img {
+        width: 225px;
+      }
+
+      #container {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+    <script>
+      $(function () {
+        const snare = new Audio('snare.wav')
+        const cymbal = new Audio('cymbal.wav')
+        const bass = new Audio('bass.wav')
+
+        $('#drum').click(function () {
+          snare.play()
+        })
+        $('#cymbal').click(function () {
+          cymbal.play()
+        })
+        $('#bass').dbclick(function () {
+          bass.play()
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <img id="drum" src="drum.jpg" />
+      <img id="cymbal" src="cymbal.jpg" />
+      <img id="bass" src="bass_drum.jpg" />
+    </div>
+  </body>
+</html>
