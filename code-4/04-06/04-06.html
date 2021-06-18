@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04-06: 浏览器事件</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+      #container {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        height: 80vh;
+      }
+      img {
+        width: 100%;
+      }
+    </style>
+    <script>
+      $(window).resize(function () {
+        if (this.resizeTO) clearTimeout(this.resizeTO)
+        this.resizeTO = setTimeout(function () {
+          $(this).trigger('resizeEnd')
+        }, 500)
+      })
+      $(function () {
+        $(window).resize(function () {
+          $('#fruit').fadeOut()
+        })
+        $(window).bind('resizeEnd', function () {
+          $('#fruit').fadeIn()
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <img src="fruit.jpg" id="fruit" alt="fruit" />
+    </div>
+  </body>
+</html>
