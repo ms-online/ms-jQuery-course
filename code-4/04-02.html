@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04-02: 表单常用事件</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #ccc;
+      }
+
+      #container {
+        display: flex;
+        justify-content: center;
+      }
+      #form {
+        font-family: Arial;
+        border: 2px dotted black;
+        padding: 20px;
+        font-size: 1.5em;
+        width: 400px;
+        margin: 10px;
+        background-color: white;
+        height: 500px;
+      }
+      h1 {
+        font-size: 1.25em;
+        margin: 0;
+        margin-bottom: 50px;
+        padding: 20px;
+      }
+
+      input,
+      select {
+        font-size: 1.25em;
+        margin-bottom: 20px;
+      }
+
+      select {
+        width: 93%;
+      }
+
+      button {
+        width: 93%;
+        font-size: 0.85em;
+        font-weight: bold;
+        background-color: #ff8b00;
+        height: 40px;
+      }
+
+      p {
+        text-align: center;
+        font-size: 0.8em;
+      }
+    </style>
+    <script>
+      $(function () {
+        $('p').hide()
+        //失焦和聚焦方法
+        $('input')
+          .focus(function () {
+            $(this).css('background-color', 'yellow')
+          })
+          .blur(function () {
+            $(this).css('background-color', 'white')
+          })
+
+        $('input:last').focus(function () {
+          $('p').slideDown()
+        })
+        //change事件
+        $('input:last').change(function () {
+          let pw = $('input:last').val()
+          // console.log(pw)
+          if (pw.length < 8) {
+            $('p').text('密码长度至少为8个字符！')
+          } else {
+            $('p').text('')
+          }
+        })
+        //sumbit事件
+        $('form').submit(function (e) {
+          e.preventDefault()
+          console.log($(this).serialize())
+          let un = $('input:first').val()
+          let pw = $('input:last').val()
+          console.log('UN: ' + un + ' PW: ' + pw)
+          $('#form').fadeOut()
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="form">
+        <h1>登录表单</h1>
+        <form action="#">
+          <label for="un">用户名</label><br />
+          <input type="text" id="un" name="un" /><br />
+          <label for="pw">密码</label><br />
+          <input type="password" id="pw" name="pw" /><br />
+          <select id="sex" name="sex">
+            <option id="male">male</option>
+            <option id="female">female</option>
+            <option id="other">other</option>
+          </select>
+          <p>请注意保管您的密码！</p>
+          <button>登录</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
