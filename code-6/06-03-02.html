@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>06-03-02: 对话框</title>
+    <link
+      rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+      $(function () {
+        $('#btnOpen').on('click', function () {
+          $('#dialog').dialog('open')
+        })
+
+        $('#dialog').dialog({
+          autoOpen: false,
+          show: {
+            effect: 'blind',
+            duration: 1000,
+          },
+          hide: {
+            effect: 'explode',
+            duration: 500,
+          },
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <div id="dialog" title="我是对话框">
+      <p>欢迎来到我的主页！</p>
+    </div>
+    <button id="btnOpen">打开对话框</button>
+  </body>
+</html>
