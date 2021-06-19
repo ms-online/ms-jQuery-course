@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>06-01 手风琴</title>
+    <link
+      rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+      $(function () {
+        $('#accordion').accordion()
+      })
+    </script>
+    <style>
+      img {
+        float: left;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="accordion">
+      <h3>HTML</h3>
+      <div>
+        <p>
+          <img src="html5.png" />
+          HTML5是构建Web内容的一种语言描述方式。HTML5是互联网的下一代标准，是构建以及呈现互联网内容的一种语言方式．被认为是互联网的核心技术之一。HTML产生于1990年，1997年HTML4成为互联网标准，并广泛应用于互联网应用的开发。
+        </p>
+      </div>
+      <h3>JavaScript</h3>
+      <div>
+        <p>
+          <img src="javascript.png" />
+          JavaScript（简称“JS”）
+          是一种具有函数优先的轻量级，解释型或即时编译型的编程语言。虽然它是作为开发Web页面的脚本语言而出名，但是它也被用到了很多非浏览器环境中，JavaScript
+          基于原型编程、多范式的动态脚本语言，并且支持面向对象、命令式和声明式（如函数式编程）风格。
+        </p>
+      </div>
+      <h3>CSS</h3>
+      <div>
+        <p>
+          <img src="css.png" />
+          CSS3是CSS（层叠样式表）技术的升级版本，于1999年开始制订，2001年5月23日W3C完成了CSS3的工作草案，主要包括盒子模型、列表模块、超链接方式、语言模块、背景和边框、文字特效、多栏布局等模块。
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
