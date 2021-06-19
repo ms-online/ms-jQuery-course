@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05-02: 加载远程数据（天气）</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+      #city,
+      #btnGetWeather,
+      #out {
+        font-size: 1.5em;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #btnGetWeather,
+      #out {
+        margin-top: 10px;
+      }
+
+      #out {
+        background-color: #f2f2f2;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="city">城市</label>
+    <input type="text" id="city" /><br />
+    <button id="btnGetWeather">获取当前天气状况</button>
+    <div id="out"></div>
+    <script>
+      $('#btnGetWeather').click(function () {
+        let city = $('#city').val()
+        let url = 'http://wthrcdn.etouch.cn/weather_mini?city='
+        url += city
+
+        $.ajax(url).done(function (response) {
+          // console.log(response)
+          const respnseData = JSON.parse(response)
+          const data = respnseData.data
+          console.log(data)
+          let outData = '城市：' + data.city
+          outData += '<br/>日期：' + data.forecast[0].date
+          outData += '<br/>天气：' + data.forecast[0].type
+          outData += '<br/>温度：' + data.wendu
+          outData += '<br/>风向：' + data.forecast[0].fengxiang
+          outData += '<br/>最高气温：' + data.forecast[0].high
+          outData += '<br/>最低气温：' + data.forecast[0].low
+          outData += '<br/>感冒：' + data.ganmao
+          $('#out').html(outData)
+        })
+      })
+    </script>
+  </body>
+</html>
