@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05-04:删除书单</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+      #book,
+      #artist,
+      #btnAdd {
+        font-size: 1.5em;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      #btnAdd {
+        margin-top: 10px;
+      }
+      table {
+        width: 400px;
+        margin-top: 10px;
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      td,
+      th {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>我的书单</h1>
+    <label for="artist">作者</label>
+    <input type="text" id="artist" />
+    <label for="book">书籍名称</label>
+    <input type="text" id="book" />
+
+    <br />
+    <button id="btnAdd">添加</button>
+    <table>
+      <tr>
+        <th>作者</th>
+        <th>书名</th>
+        <th>删除</th>
+      </tr>
+    </table>
+    <script>
+      let books = []
+      //添加书单
+      $('#btnAdd').click(function () {
+        let book = $('#book').val()
+        let artist = $('#artist').val()
+        let data = [{ bookName: book, bookArtist: artist }]
+
+        books.push(data)
+        console.log(books)
+        $('#book, #artist').val('')
+        displayTable()
+      })
+      //显示表格信息
+      function displayTable() {
+        $('table').html('<tr><th>作者</th><th>书名</th><th>删除</th></tr>')
+        $.each(books, function (key, val) {
+          let bookName = val[0].bookName
+          let bookArtist = val[0].bookArtist
+          $('table tr:last').after(
+            "<tr id='" +
+              key +
+              "'><td>" +
+              bookArtist +
+              '</td><td>' +
+              bookName +
+              "</td><td><button id='delete" +
+              key +
+              "'>删除</button></td></tr>"
+          )
+        })
+        deleteBook()
+      }
+      //删除书单功能
+      function deleteBook() {
+        $('table button').click(function (event) {
+          let deleteKey = event.currentTarget.parentElement.parentElement.id
+          console.log('已删除' + deleteKey)
+          books.splice(deleteKey, 1)
+          displayTable()
+        })
+      }
+    </script>
+  </body>
+</html>
